@@ -1,1 +1,16 @@
-// Vous devez complétéer ce fichier
+@startuml
+skinparam style strictuml
+skinparam defaultfontname Verdana
+title RDCU pour terminerJeu
+participant ":JeuDeDes" as c
+participant "joueurs:\nMap<String, Joueur>" as jm
+->c : redemarrerJeu()
+note right
+  selon Contrôleur
+  (JeuDeDés est
+  l'objet racine)
+end note
+c->jm : clear()
+note right : selon Expert
+@enduml
+
