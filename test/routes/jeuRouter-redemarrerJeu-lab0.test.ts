@@ -16,17 +16,11 @@ beforeAll(async () => {
     await request.post('/api/v1/jeu/demarrerJeu').send({ nom: testNom2 });
   });
 
-/*describe('redemarrerJeu.test.ts', () => {
-  it("devrait implémenter test", async () => {
-    throw new Error("Ce test n'a pas été défini")
-  });
-});*/
-
 describe('GET /api/v1/jeu/redemarrerJeu', () => {
 
   //vérifier que le jeu à été redémarré pour joueur1
   it(`devrait répondre avec succès pour redémarrer le jeu pour joueur ${testNom1}`, async () => {
-    const response = await request.get('/api/v1/jeu/redemarrerJeu');  //.get('/api/v1/jeu/jouer/' + testNom1) --a effacer
+    const response = await request.get('/api/v1/jeu/redemarrerJeu');
     expect(response.status).toBe(200);
     expect(response.type).toBe("application/json");
   });
