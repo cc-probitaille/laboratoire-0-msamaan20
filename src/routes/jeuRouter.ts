@@ -61,9 +61,9 @@ export class JeuRouter {
       const resultat = this._controleurJeu.jouer(nom);
       const resultatObj = JSON.parse(resultat);
       // flash un message selon le résultat
-      const key = resultatObj.somme == 7 ? 'win' : 'info';
+      const key = resultatObj.somme <=10 ? 'win' : 'info';
       req.flash(key,
-        `Résultat pour ${nom}: ${resultatObj.v1} + ${resultatObj.v2} = ${resultatObj.somme}`);
+        `Résultat pour ${nom}: ${resultatObj.v1} + ${resultatObj.v2}+ ${resultatObj.v3} = ${resultatObj.somme}`);
       res.status(200)
         .send({
           message: 'Success',
@@ -110,14 +110,8 @@ export class JeuRouter {
    * redémarrer le jeu
    */
   public redemarrerJeu(req: Request, res: Response, next: NextFunction) {
-    //const nom = req.params.nom;
 
     try {
-      
-      /*if (!nom) {
-        throw new InvalidParameterError('ce joueur n\'existe pas');
-      }*/
-
       const resultat = this._controleurJeu.redemarrerJeu(); // appeler la méthode redemarrerJeu du contrôleur GRASP
       req.flash(`Le jeu a été redémarré`);
       res.status(200)
