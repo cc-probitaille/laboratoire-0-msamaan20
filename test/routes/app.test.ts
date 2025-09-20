@@ -1,6 +1,7 @@
 import supertest from 'supertest';
 import 'jest-extended';
 import app from '../../src/app';
+import { Joueur } from '../../src/core/joueur';
 
 const request = supertest(app);
 

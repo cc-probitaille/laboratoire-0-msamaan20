@@ -88,7 +88,7 @@ export class JeuDeDes {
     }
 
     //méthode pour redémarrer le jeu
-    public redemarrerJeu(){
+    public redemarrerJeu() {
         this._joueurs.clear();
         return JSON.stringify(Array.from(this._joueurs.values()));
     }
